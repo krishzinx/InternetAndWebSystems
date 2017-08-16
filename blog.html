@@ -7,35 +7,63 @@
   <title>Blog</title>
   <style>
     h1{
-	  background-color: black;
-	  color: white;
+	  background-color: #f1f1f1;
 	  text-align: center;
 	}
-	
 	h2{
-	  background-color: black;
-	  color: white;
+	  background-color: black; 
 	}
 	footer{
-	  background-color: black;
-	  color: white;
+	  background-color: #f1f1f1;
 	  text-align: center;
 	}
 	.sideBar{
 	  float: right;
-	  width: 15%
+	  width: 15%;
+ 	  background-color: #f1f1f1;  
 	}
 	.content{
 	  overflow: auto;
 	}
 	.headers{
-	  background-color: black;
-	  color: white;
+      background-color: #f1f1f1;
+    
 	}
 	.normal{
 	  background-color: white;
 	  color: black;
 	}
+	body {
+    margin: 0;
+   }
+
+   ul {
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+     width: 25%;
+     background-color: #f1f1f1;
+     position: fixed;
+     height: 100%;
+     overflow: auto;
+   }
+
+   li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+   }
+
+   li a.active {
+    background-color: #4CAF50;
+    color: white;
+   }
+
+   li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+   }
   </style>  
 </head>
 
@@ -45,20 +73,30 @@
       Blog for on chip computers
     </h1>
   </header>
+ 
+  <ul id = "navi">
+    <li><a class="active" href="#home">Home</a></li>
+    <li><a href="#news">Rasberry-pi</a></li>
+    <li><a href="#contact">BeagleBone Black</a></li>
+    <li><a href="#about">8051</a></li>
+    <li><a href="#about">Arduino</a></li>
+  </ul>
   <aside class="sideBar">
     <h3 class>Buy on chip computers here!!</h3>
-    <ul>
+    <ul style = "position: absolute">
 	  <li><a href="#" class="w3-bar-item w3-button">Link 1</a></li>
       <li><a href="#" class="w3-bar-item w3-button">Link 2</a></li>
       <li><a href="#" class="w3-bar-item w3-button">Link 3</a></li>
 	</ul>
   </aside>
+  <section style="margin-left:25%; margin-right:15%;padding:1px 16px;height:1000px;">
   <section class = "content">
     <article>
 	  <details>
 	    <summary class = "headers">
 	     Rasberry Pi
 	    </summary>
+		
 		<p>The Raspberry Pi is a series of small single-board computers developed in the United Kingdom by the Raspberry Pi Foundation to promote the teaching of basic computer science in schools and in developing countries.</p>
 	 </details>
 	</article>
@@ -102,6 +140,7 @@
 	  CopyRights <a href = "kh442@snu.edu.in" style = "color: white">Mail here</a>
 	</address>
   </footer>
+  </section>
 </body>
 
 </html>
