@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Provision Store</title>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+      <style>
+        body {
+          width: 100%;
+        }
+
+        .header>.container>.row {
+          text-align: center;
+          background-color: #eee;
+        }
+
+        .header>.container>.row>.col-sm-4>a {
+          text-decoration: none;
+          color: #000;
+          -webkit-transition: color 0.5s;
+          transition: color 0.5s;
+        }
+
+        .header>.container>.row>.col-sm-4>a:hover {
+          color: #66a3ff;
+        }
+
+        .header>.container>.row>.col-sm-4>button {
+          margin: 15px 200px 15px 200px;
+          border-radius: 10px;
+          padding: 6px 15px 6px 15px;
+          background-color: #66a3ff;
+          color: #000;
+          -webkit-transition: color 0.5s, background-color 0.8s, padding 0.5s;
+          transition: color 0.5s, background-color 0.8s, padding 0.5s;
+        }
+
+        .header>.container>.row>.col-sm-4>button:hover {
+          padding: 7px 16px 7px 16px;
+          background-color: #3385ff;
+          color: #fff;
+        }
+
+        #category>.container>.row>.col-sm-4 {
+          width: 390px;
+          height: 290px;
+          background-color: white;
+
+        }
+
+        .col-sm-3 {
+          height: 250px;
+        }
+
+        .buttoncat {
+          width: 350px;
+          height: 250px;
+          border-radius: 10px;
+          padding: 0px;
+          margin-top: 20px;
+          border: 1px solid #66a3ff;
+          background-color: white;
+          -webkit-transition: width 0.5s, height 0.5s, font-size 0.5s, background-color 0.5s;
+          transition: width 0.5s, height 0.5s, font-size 0.5s, background-color 0.5s;
+        }
+
+        .buttoncat:hover {
+          width: 360px;
+          height: 260px;
+          border-radius: 12px;
+          font-size: 20px;
+          border: 1px solid #0052cc;
+          background-color: #aaccff;
+        }
+
+        .category>section>section>article>h3 {
+          padding: 3px;
+          color: #eee;
+        }
+
+        #category1 {
+          width: 100%;
+          height: 80%;
+          background-image: url("http://couponsgrid.com/blog/wp-content/uploads/2014/05/524529_799745836748453_981372633_n.jpg");
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+        }
+
+        #category2 {
+          width: 100%;
+          height: 80%;
+          background-image: url("http://www.primedeal.co.in/image/catalog/00Branded%20&%20PAcked%20Food%202.jpg");
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+        }
+
+        #category3 {
+          width: 100%;
+          height: 80%;
+          background-image: url("http://thestudyabroadblog.com/wp-content/uploads/2012/02/Top-10-electronics-Study-Abroad.png");
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+        }
+
+        #category4 {
+          width: 100%;
+          height: 80%;
+          background-image: url("https://image.flaticon.com/sprites/share/packs/188263-clothes.png");
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+        }
+
+        #category5 {
+          width: 100%;
+          height: 80%;
+          background-image: url("http://www.startupremarkable.com/wp-content/uploads/2015/02/a-book-a-week-image.jpg");
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+        }
+
+        .buttoncategory {
+          width: 100%;
+          height: 40px;
+          border: none;
+          background-color: #66a3ff;
+          color: #eee;
+          font-size: 20px;
+          padding: 5px;
+          margin-bottom: 10px;
+          text-align: center;
+          border-radius: 10px;
+          -webkit-transition: font-size 0.5s, color 0.5s, background-color 0.5s, border-radius 0.5s;
+          transition: color 0.5s, background-color 0.5s, font-size 0.5s, border-radius 0.5s;
+        }
+
+        .buttoncategory:hover {
+          background-color: #0052cc;
+          color: white;
+          font-size: 22px;
+          border-radius: 14px;
+        }
+
+        .navbar {
+          padding: 5px;
+          height: 100%;
+          margin-top: 5px;
+        }
+
+        .buttonitem {
+          width: 250px;
+          height: 200px;
+          border-radius: 10px;
+          padding: 0px;
+          font-size: 15px;
+          margin-top: 20px;
+          border: 1px solid #66a3ff;
+          background-color: white;
+          -webkit-transition: width 0.5s, height 0.5s, font-size 0.5s;
+          transition: width 0.5s, height 0.5s, font-size 0.5s;
+        }
+
+        .buttonitem:hover {
+          width: 260px;
+          height: 210px;
+          border-radius: 12px;
+          font-size: 17px;
+          border: 1px solid #0052cc;
+          background-color: #eee;
+        }
+
+        #cart>section>section>.col-sm-3 {
+          height: 50px;
+        }
+
+        #addCategory {
+          text-align: center;
+          color: #66b3ff;
+        }
+
+        #addCategory>.container>.row>.col-sm-6>button {
+          background-color: #66b3ff;
+          color: #fff;
+          border-radius: 10px;
+          padding: 5px;
+          -webkit-transition: color 0.5s, background-color 0.5s, border-radius 0.5s;
+          transition: color 0.5s, background-color 0.5s, border-radius 0.5s;
+        }
+
+        #addCategory>.container>.row>.col-sm-6>button:hover {
+          background-color: #3399ff;
+          color: #000;
+          border-radius: 12px;
+          padding: 5px;
+        }
+
+        #addCategory>.container>.row>.col-sm-6>.additem>button {
+          background-color: #66b3ff;
+          color: #fff;
+          border-radius: 10px;
+          padding: 5px;
+          -webkit-transition: color 0.5s, background-color 0.5s, border-radius 0.5s;
+          transition: color 0.5s, background-color 0.5s, border-radius 0.5s;
+        }
+
+        #addCategory>.container>.row>.col-sm-6>.>additem>button:hover {
+          background-color: #3399ff;
+          color: #000;
+          border-radius: 12px;
+          padding: 5px;
+        }
+
+      </style>
+  </head>
+  
+  <body>
+
+    <header class="header">
+      <section class="container">
+        <section class="row">
+          <article class="col-sm-4"></article>
+
+          <article class="col-sm-4">
+            <a onclick="home()"><h1>Provision Store</h1></a>
+          </article>
+
+          <article class="col-sm-4">
+            <button onclick="cart()">Cart</button>
+          </article>
+        </section>
+      </section>
+    </header>
+    
+    <section id="category">
+      <section class="container">
+        <section class="row">
+          <article class="col-sm-4">
+            <button class="buttoncat" onclick="category1()"><article id="category1">            
+            </article><h3>Stationary</h3></button>
+          </article>
+      
+          <article class="col-sm-4">
+            <button class="buttoncat" onclick="category2()"><article id="category2">              
+            </article><h3>Packed Food</h3></button>
+          </article>
+        
+          <article class="col-sm-4">
+            <button class="buttoncat" onclick="category3()"><article id="category3">            
+            </article><h3>Electronics</h3></button>
+          </article>
+        </section>
+
+        <section class="row">
+          <article class="col-sm-4">
+            <button class="buttoncat" onclick="category4()"><article id="category4">  
+            </article><h3>Clothes</h3></button>
+          </article>
+
+          <article class="col-sm-4">
+            <button class="buttoncat" onclick="category5()"><article id="category5">  
+            </article><h3>Books</h3></button>
+          </article>
+
+          <article class="col-sm-4">
+            <button class="buttoncat" onclick="addCategory()"><article>  
+            </article><h3><p id="cat">Add Category</p></h3></button>
+          </article>
+        </section>
+      </section>
+    </section>
+
+    <section id="sidebar1">
+      <section class="container">
+        <section class="row">
+          <article class="col-sm-3">
+            <nav class="navbar">    
+              <button class="buttoncategory" onclick="home()">Home</button><br>
+              <button class="buttoncategory" onclick="category1()">Stationary</button><br>
+              <button class="buttoncategory" onclick="category2()">Packed Food</button><br>
+              <button class="buttoncategory" onclick="category3()">Electronics</button><br>
+              <button class="buttoncategory" onclick="category4()">Clothes</button><br>
+            </nav>
+          </article>
+          <script>
+            $(document).ready(function(){
+              $('[data-toggle="popover"]').popover();   
+            });
+          </script> 
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹100" data-toggle="popover" data-trigger="hover" data-content="GST = 12%">
+              <button class="buttonitem" onclick="item(00)">
+                <article class="item11"></article>
+                <p>Parker Pen</p>
+              </button>
+            </a>
+          </article>
+
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹10" data-toggle="popover" data-trigger="hover" data-content="GST = 12%">
+              <button class="buttonitem" onclick="item(01)">
+                <article class="item11"></article>
+                <p>HB Pencils</p>  
+              </button>
+            </a>
+          </article>
+
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹3" data-toggle="popover" data-trigger="hover" data-content="GST = 12%">
+              <button class="buttonitem" onclick="item(02)">
+                <article class="item11"></article>
+                <p>Erasers</p>
+              </button>
+            </a>
+          </article>
+
+
+        </section>
+        <section class="row">
+          <article class="col-sm-3">
+            <nav class="navbar">
+              <button class="buttoncategory" onclick="category5()">Books</button><br>
+              <button class="buttoncategory" onclick="done()"></button>
+              <button class="buttoncategory" onclick="cart()">Cart</button><br>
+            </nav>
+          </article>
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹30" data-toggle="popover" data-trigger="hover" data-content="GST = 12%">
+              <button class="buttonitem" onclick="item(03)">
+                <article class="item11"></article>
+                <p>Rulers</p>
+              </button>
+            </a>
+          </article>
+
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹150" data-toggle="popover" data-trigger="hover" data-content="GST = 12%">
+              <button class="buttonitem" onclick="item(04)">
+                <article class="item11"></article>
+                <p>Geometry Sets</p>
+              </button>
+            </a>
+          </article>
+        </section>
+        <article class="alert alert-success"></article>
+        <article class="alert alert-danger">Cart Full!</article>
+      </section>
+    </section>
+
+    <section id="sidebar2">
+      <section class="container">
+        <section class="row">
+          <article class="col-sm-3">
+            <nav class="navbar">    
+              <button class="buttoncategory" onclick="home()">Home</button><br>
+              <button class="buttoncategory" onclick="category1()">Stationary</button><br>
+              <button class="buttoncategory" onclick="category2()">Packed Food</button><br>
+              <button class="buttoncategory" onclick="category3()">Electronics</button><br>
+              <button class="buttoncategory" onclick="category4()">Clothes</button><br>
+            </nav>
+          </article>
+          <script>
+            $(document).ready(function(){
+              $('[data-toggle="popover"]').popover();   
+            });
+          </script> 
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹20" id="item111" data-toggle="popover" data-trigger="hover" data-content="GST = 18%">
+              <button class="buttonitem" onclick="item(05)">
+                <article class="item22"></article>
+                <p>Kurkure</p>
+              </button>
+            </a>
+          </article>
+
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹20" data-toggle="popover" data-trigger="hover" data-content="GST = 18%">
+              <button class="buttonitem" onclick="item(06)">
+                <article class="item22"></article>
+                <p>Lays</p>
+              </button>
+            </a>
+          </article>
+
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹50" data-toggle="popover" data-trigger="hover" data-content="GST = 18%">
+              <button class="buttonitem" onclick="item(07)">
+                <article class="item22"></article>
+                <p>Popcorn</p>
+              </button>
+            </a>
+          </article>
+
+
+        </section>
+        <section class="row">
+          <article class="col-sm-3">
+            <nav class="navbar">
+              <button class="buttoncategory" onclick="category5()">Books</button><br>
+              <button class="buttoncategory" onclick="done()"></button>
+              <button class="buttoncategory" onclick="cart()">Cart</button><br>
+            </nav>
+          </article>
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹35" data-toggle="popover" data-trigger="hover" data-content="GST = 18%">
+              <button class="buttonitem" onclick="item(08)">
+                <article class="item22"></article>
+                <p>Nachos</p>
+              </button>
+            </a>
+          </article>
+
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹12" data-toggle="popover" data-trigger="hover" data-content="GST = 18%">
+              <button class="buttonitem" onclick="item(09)">
+                <article class="item22"></article>
+                <p>Maggie Noodles</p>
+              </button>
+            </a>
+          </article>
+        </section>
+        <article class="alert alert-success"></article>
+        <article class="alert alert-danger">Cart Full!</article>
+      </section>
+    </section>
+
+    <section id="sidebar3">
+      <section class="container">
+        <section class="row">
+          <article class="col-sm-3">
+            <nav class="navbar">    
+              <button class="buttoncategory" onclick="home()">Home</button><br>
+              <button class="buttoncategory" onclick="category1()">Stationary</button><br>
+              <button class="buttoncategory" onclick="category2()">Packed Food</button><br>
+              <button class="buttoncategory" onclick="category3()">Electronics</button><br>
+              <button class="buttoncategory" onclick="category4()">Clothes</button><br>
+            </nav>
+          </article>
+          <script>
+            $(document).ready(function(){
+              $('[data-toggle="popover"]').popover();   
+            });
+          </script> 
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹1,00,000" data-toggle="popover" data-trigger="hover" data-content="GST = 20%">
+              <button class="buttonitem" onclick="item(10)">
+                <article class="item33"></article>
+                <p>Mobiles</p>
+              </button>
+            </a>
+          </article>
+
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹1,80,000" data-toggle="popover" data-trigger="hover" data-content="GST = 20%">
+              <button class="buttonitem" onclick="item(11)">
+                <article class="item33"></article>
+                <p>Laptops</p>
+              </button>
+            </a>
+          </article>
+
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹30,000" data-toggle="popover" data-trigger="hover" data-content="GST = 15%">
+              <button class="buttonitem" onclick="item(12)">
+                <article class="item33"></article>
+                <p>Washing Machines</p>
+              </button>
+            </a>
+          </article>
+
+
+        </section>
+        <section class="row">
+          <article class="col-sm-3">
+            <nav class="navbar">
+              <button class="buttoncategory" onclick="category5()">Books</button><br>
+              <button class="buttoncategory" onclick="done()"></button>
+              <button class="buttoncategory" onclick="cart()">Cart</button><br>
+            </nav>
+          </article>
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹3,00,000" data-toggle="popover" data-trigger="hover" data-content="GST = 20%">
+              <button class="buttonitem" onclick="item(13)">
+                <article class="item33"></article>
+                <p>T.V.</p>
+              </button>
+            </a>
+          </article>
+
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹50,000" data-toggle="popover" data-trigger="hover" data-content="GST = 20%">
+              <button class="buttonitem" onclick="item(14)">
+                <article class="item33"></article>
+                <p>Speakers</p>
+              </button>
+            </a>
+          </article>
+        </section>
+        <article class="alert alert-success"></article>
+        <article class="alert alert-danger">Cart Full!</article>
+      </section>
+    </section>
+
+    <section id="sidebar4">
+      <section class="container">
+        <section class="row">
+          <article class="col-sm-3">
+            <nav class="navbar">    
+              <button class="buttoncategory" onclick="home()">Home</button><br>
+              <button class="buttoncategory" onclick="category1()">Stationary</button><br>
+              <button class="buttoncategory" onclick="category2()">Packed Food</button><br>
+              <button class="buttoncategory" onclick="category3()">Electronics</button><br>
+              <button class="buttoncategory" onclick="category4()">Clothes</button><br>
+            </nav>
+          </article>
+          <script>
+            $(document).ready(function(){
+              $('[data-toggle="popover"]').popover();   
+            });
+          </script> 
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹5,000" data-toggle="popover" data-trigger="hover" data-content="GST = 10%">
+              <button class="buttonitem" onclick="item(15)">
+                <article class="item44"></article>
+                <p>Jeans</p>
+              </button>
+            </a>
+          </article>
+
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹4,000" data-toggle="popover" data-trigger="hover" data-content="GST = 10%">
+              <button class="buttonitem" onclick="item(16)">
+                <article class="item44"></article>
+                <p>Shirt</p>
+              </button>
+            </a>
+          </article>
+
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹900" data-toggle="popover" data-trigger="hover" data-content="GST = 10%">
+              <button class="buttonitem" onclick="item(17)">
+                <article class="item44"></article>
+                <p>T-Shirt</p>
+              </button>
+            </a>
+          </article>
+
+
+        </section>
+        <section class="row">
+          <article class="col-sm-3">
+            <nav class="navbar">
+              <button class="buttoncategory" onclick="category5()">Books</button><br>
+              <button class="buttoncategory" onclick="done()"></button>
+              <button class="buttoncategory" onclick="cart()">Cart</button><br>
+            </nav>
+          </article>
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹20,000" data-toggle="popover" data-trigger="hover" data-content="GST = 10%">
+              <button class="buttonitem" onclick="item(18)">
+                <article class="item44"></article>
+                <p>Suit</p>
+              </button>
+            </a>
+          </article>
+
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹500" data-toggle="popover" data-trigger="hover" data-content="GST = 10%">
+              <button class="buttonitem" onclick="item(19)">
+                <article class="item44"></article>
+                <p>Tie</p>
+              </button>
+            </a>
+          </article>
+        </section>
+        <article class="alert alert-success"></article>
+        <article class="alert alert-danger">Cart Full!</article>
+      </section>
+    </section>
+
+    <section id="sidebar5">
+      <section class="container">
+        <section class="row">
+          <article class="col-sm-3">
+            <nav class="navbar">    
+              <button class="buttoncategory" onclick="home()">Home</button><br>
+              <button class="buttoncategory" onclick="category1()">Stationary</button><br>
+              <button class="buttoncategory" onclick="category2()">Packed Food</button><br>
+              <button class="buttoncategory" onclick="category3()">Electronics</button><br>
+              <button class="buttoncategory" onclick="category4()">Clothes</button><br>
+            </nav>
+          </article>
+          <script>
+            $(document).ready(function(){
+              $('[data-toggle="popover"]').popover();   
+            });
+          </script> 
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹155" data-toggle="popover" data-trigger="hover" data-content="GST = 16%">
+              <button class="buttonitem" onclick="item(20)">
+                <article class="item55"></article>
+                <p>The Alchemist</p>
+              </button>
+            </a>
+          </article>
+
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹140" data-toggle="popover" data-trigger="hover" data-content="GST = 16%">
+              <button class="buttonitem" onclick="item(21)">
+                <article class="item55"></article>
+                <p>The Monk Who Sold His Ferrari</p>
+              </button>
+            </a>
+          </article>
+
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹210" data-toggle="popover" data-trigger="hover" data-content="GST = 16%">
+              <button class="buttonitem" onclick="item(22)">
+                <article class="item55"></article>
+                <p>To Kill a Mockingbird</p>
+              </button>
+            </a>
+          </article>
+
+
+        </section>
+        <section class="row">
+          <article class="col-sm-3">
+            <nav class="navbar">
+              <button class="buttoncategory" onclick="category5()">Books</button><br>
+              <button class="buttoncategory" onclick="done()"></button>
+              <button class="buttoncategory" onclick="cart()">Cart</button><br>
+            </nav>
+          </article>
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹140" data-toggle="popover" data-trigger="hover" data-content="GST = 16%">
+              <button class="buttonitem" onclick="item(23)">
+                <article class="item55"></article>
+                <p>And Then There Were None</p>
+              </button>
+            </a>
+          </article>
+
+          <article class="col-sm-3">
+            <a href="#" title="Price : ₹1,000" data-toggle="popover" data-trigger="hover" data-content="GST = 16%">
+              <button class="buttonitem" onclick="item(24)">
+                <article class="item55"></article>
+                <p>Lord Of The Rings</p>
+              </button>
+            </a>
+          </article>
+        </section>
+        <article class="alert alert-success"></article>
+        <article class="alert alert-danger">Cart Full!</article>
+      </section>
+    </section>
+
+    <section id="inputitem">
+      <section class="container">
+        <section class="row">
+          <article class="col-sm-3">
+            <nav class="navbar">    
+              <button class="buttoncategory" onclick="home()">Home</button><br>
+              <button class="buttoncategory" onclick="category1()">Stationary</button><br>
+              <button class="buttoncategory" onclick="category2()">Packed Food</button><br>
+              <button class="buttoncategory" onclick="category3()">Electronics</button><br>
+              <button class="buttoncategory" onclick="category4()">Clothes</button><br>
+            </nav>
+          </article>
+         
+          <article class="col-sm-3" id="1">
+            <a href="#">
+              <button class="buttonitem" onclick="item(25)">
+                <article></article>
+                <p class="inputItem"></p>
+              </button>
+            </a>
+          </article>
+
+          <article class="col-sm-3" id="2">
+            <a href="#">
+              <button class="buttonitem" onclick="item(26)">
+                <article></article>
+                <p class="inputItem"></p>
+              </button>
+            </a>
+          </article>
+
+          <article class="col-sm-3" id="3">
+            <a href="#">
+              <button class="buttonitem" onclick="item(27)">
+                <article></article>
+                <p class="inputItem"></p>
+              </button>
+            </a>
+          </article>
+
+
+        </section>
+        <section class="row">
+          <article class="col-sm-3">
+            <nav class="navbar">
+              <button class="buttoncategory" onclick="category5()">Books</button><br>
+              <button class="buttoncategory" onclick="done()"></button>
+              <button class="buttoncategory" onclick="cart()">Cart</button><br>
+            </nav>
+          </article>
+          <article class="col-sm-3" id="4">
+            <a href="#">
+              <button class="buttonitem" onclick="item(28)">
+                <article></article>
+                <p class="inputItem"></p>
+              </button>
+            </a>
+          </article>
+
+          <article class="col-sm-3" id="5">
+            <a href="#">
+              <button class="buttonitem" onclick="item(29)">
+                <article></article>
+                <p class="inputItem"></p>
+              </button>
+            </a>
+          </article>
+          <article class="col-sm-3"></article>
+        </section>
+        <article class="alert alert-success"></article>
+        <article class="alert alert-danger">Cart Full!</article>
+      </section>
+    </section>
+
+    <section id="addCategory">
+      <section class="container">
+        <section class="row">
+          <article class="col-sm-6">
+            <br><p>Category Name</p><br>
+            <input type="text" id="categoryName"><br><br>
+            <p>Number Of Items</p><br>
+            <input type="text" id="numberOfItems"><br><br>
+            <button onclick="addItems()">Submit</button>
+          </article>
+          <article class="col-sm-6">
+            <article class="additem">
+              <br><p>Item 1 and price</p><br>
+              <input type="text" class="inp" value="Item Name"><br><br>
+              <input type="text" class="inp2" value="Price"><br><br>
+            </article>
+            <article class="additem">
+              <br><p>Item 2 and price</p><br>
+              <input type="text" class="inp" value="Item Name"><br><br>
+              <input type="text" class="inp2" value="Price"><br><br>
+            </article>
+            <article class="additem">
+              <br><p>Item 3 and price</p><br>
+              <input type="text" class="inp" value="Item Name"><br><br>
+              <input type="text" class="inp2" value="Price"><br><br>
+            </article>
+            <article class="additem">
+              <br><p>Item 4 and price</p><br>
+              <input type="text" class="inp" value="Item Name"><br><br>
+              <input type="text" class="inp2" value="Price"><br><br>
+            </article>
+            <article class="additem">
+              <br><p>Item 5 and price</p><br>
+              <input type="text" class="inp" value="Item Name"><br><br>
+              <input type="text" class="inp2" value="Price"><br><br>
+            </article>
+            <article class="additem">
+              <button onclick="done()">Submit</button>
+            </article>
+          </article>
+        </section>
+      </section>
+    </section>
+
+    <section id="cart">
+      <section class="container">
+        <section class="row">
+          <article class="col-sm-6">
+            <h5>Item</h5>
+          </article>
+          <article class="col-sm-3">
+            <h5>Quantity</h5>
+          </article>
+          <article class="col-sm-3">
+            <h5>Price</h5>
+          </article>
+        </section>  
+        <section class="row">
+          <article class="col-sm-6">
+            <p class="cartItem"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartQuantity"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartPrice"></p>
+          </article>
+        </section>  
+        <section class="row">
+          <article class="col-sm-6">
+            <p class="cartItem"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartQuantity"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartPrice"></p>
+          </article>
+        </section> 
+        <section class="row">
+          <article class="col-sm-6">
+            <p class="cartItem"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartQuantity"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartPrice"></p>
+          </article>
+        </section> 
+        <section class="row">
+          <article class="col-sm-6">
+            <p class="cartItem"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartQuantity"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartPrice"></p>
+          </article>
+        </section> 
+        <section class="row">
+          <article class="col-sm-6">
+            <p class="cartItem"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartQuantity"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartPrice"></p>
+          </article>
+        </section> 
+        <section class="row">
+          <article class="col-sm-6">
+            <p class="cartItem"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartQuantity"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartPrice"></p>
+          </article>
+        </section> 
+        <section class="row">
+          <article class="col-sm-6">
+            <p class="cartItem"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartQuantity"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartPrice"></p>
+          </article>
+        </section> 
+        <section class="row">
+          <article class="col-sm-6">
+            <p class="cartItem"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartQuantity"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartPrice"></p>
+          </article>
+        </section> 
+        <section class="row">
+          <article class="col-sm-6">
+            <p class="cartItem"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartQuantity"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartPrice"></p>
+          </article>
+        </section> 
+        <section class="row">
+          <article class="col-sm-6">
+            <p class="cartItem"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartQuantity"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartPrice"></p>
+          </article>
+        </section> 
+        <section class="row">
+          <article class="col-sm-6">
+            <p class="cartItem"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartQuantity"></p>
+          </article>
+          <article class="col-sm-3">
+            <p class="cartPrice"></p>
+          </article>
+        </section> 
+      </section>
+    </section>
+
+    <script type="text/javascript">
+      var count = 0;
+      var array = [];
+      var sum = 0;
+      var img = ["https://s3-eu-west-1.amazonaws.com/images.linnlive.com/92d78e82e1bf64b9b57eec3b909d5ed4/d0bd7ffc-a31b-4d82-a313-f726a1af1dda.jpg", "https://images-na.ssl-images-amazon.com/images/I/71TBauyMtgL._SL1500_.jpg", "https://cdn.dick-blick.com/items/215/90/21590-1021-1-2ww-m.jpg", "https://images-na.ssl-images-amazon.com/images/I/41JpQPngJnL._SX355_.jpg", "http://signposteducational.co.uk/wp-content/uploads/2013/04/tin-geometry.jpg", "https://images-na.ssl-images-amazon.com/images/I/71jqZ0ruOmL._SY550_.jpg", "http://www.perspectivebranding.com/images/uploads/portfolio/_960/Global_Lays_BAGS.jpg", "https://image.freepik.com/free-vector/popcorn-box-design_1284-863.jpg", "https://3.imimg.com/data3/DV/CX/FRL-6785927/website-wp-content-uploads-2012-03-tangy-masala-826x1024-250x250.png", "https://images-na.ssl-images-amazon.com/images/I/51C48Rbwr9L._SX385_.jpg", "http://i2.mirror.co.uk/incoming/article11159435.ece/ALTERNATES/s615b/Apple-launch-iPhone-X-Cupertino-USA-12-Sep-2017.jpg", "https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macbookpro/macos-sierra-macbook-pro-thunderbolt3-hero.jpg", "http://brain-images.cdn.dixons.com/8/6/10131168/u_10131168.jpg", "http://www.sony-asia.com/spider/da/8737/ccfa21d84a191a3d4d9877a3f3566ed7.jpeg", "https://cf1.s3.souqcdn.com/item/2014/11/19/75/60/98/3/item_XL_7560983_6226204.jpg", "http://i.ebayimg.com/images/i/360756697189-0-1/s-l1000.jpg", "https://www.zodiaconline.com/portalrepository/images/productsku/ZODIACSHIRTS_Praiano1_100_Linen_PLN_008_FSSC_CAC_Blue_10_38_0_r.jpg", "http://shop.autismspeaks.org/Shared/images/Product/AUT/AT17012.png", "https://i.pinimg.com/originals/e7/d8/73/e7d873e3642da0de081c28ca7cc60fa3.jpg", "http://carolynsonline.com/wp-content/uploads/2015/10/Fashion-Ties-For-Men-1.jpg", "https://images-na.ssl-images-amazon.com/images/I/81l6zbSjSzL.jpg", "https://images-na.ssl-images-amazon.com/images/I/91I7KpY20gL.jpg", "https://images-na.ssl-images-amazon.com/images/I/715VLP6M-OL.jpg", "https://images-na.ssl-images-amazon.com/images/I/511QFOLnMAL._SY344_BO1,204,203,200_.jpg", "https://images-na.ssl-images-amazon.com/images/I/51EstVXM1UL._SX331_BO1,204,203,200_.jpg"];
+
+      var items = [{"item":"Parker Pen", "quantity":0, "price": 100}, {"item":"HB Pencils", "quantity":0, "price": 10}, {"item":"Erasers", "quantity":0, "price": 3}, {"item":"Rulers", "quantity":0, "price": 30}, {"item":"Geometry Set", "quantity":0, "price": 150}, {"item":"Kurkure", "quantity":0, "price": 20}, {"item":"Lays", "quantity":0, "price": 20}, {"item":"Popcorn", "quantity":0, "price": 50}, {"item":"Nachos", "quantity":0, "price": 35}, {"item":"Maggie Noodles", "quantity":0, "price": 12}, {"item":"Mobiles", "quantity":0, "price": 100000}, {"item":"Laptops", "quantity":0, "price": 1800000}, {"item":"Washing Machines", "quantity":0, "price": 30000}, {"item":"T.V.", "quantity":0, "price": 300000}, {"item":"Speakers", "quantity":0, "price": 50000}, {"item":"Jeans", "quantity":0, "price": 5000}, {"item":"Shirt", "quantity":0, "price": 4000}, {"item":"T-Shirt", "quantity":0, "price": 900}, {"item":"Suit", "quantity":0, "price": 20000}, {"item":"Tie", "quantity":0, "price": 500}, {"item":"The Alchemist", "quantity":0, "price": 155}, {"item":"The Monk Who Sold His Ferrari", "quantity":0, "price": 140}, {"item":"To Kill a Mockingbird", "quantity":0, "price": 210}, {"item":"And Then There Were None", "quantity":0, "price": 140}, {"item":"Lord Of The Rings", "quantity":0, "price": 1000}];
+
+      document.getElementById("sidebar1").style.display = 'none';
+      document.getElementById("sidebar2").style.display = 'none';
+      document.getElementById("sidebar3").style.display = 'none';
+      document.getElementById("sidebar4").style.display = 'none';
+      document.getElementById("sidebar5").style.display = 'none';
+      document.getElementById("inputitem").style.display = 'none';
+      document.getElementById("addCategory").style.display = 'none';
+      for (i = 0; i < 6; i++) {
+        document.getElementsByClassName("alert alert-danger")[i].style.display = 'none';
+        document.getElementsByClassName("alert alert-success")[i].style.display = 'none';
+        document.getElementsByClassName("buttoncategory")[(8 * i) + 6].style.display = 'none';
+      }
+
+      document.getElementById("cart").style.display = 'none';
+
+      function cart() {
+        document.getElementById("sidebar1").style.display = 'none';
+        document.getElementById("sidebar2").style.display = 'none';
+        document.getElementById("sidebar3").style.display = 'none';
+        document.getElementById("addCategory").style.display = 'none';
+        document.getElementById("sidebar4").style.display = 'none';
+        document.getElementById("inputitem").style.display = 'none';
+        document.getElementById("sidebar5").style.display = 'none';
+        document.getElementById("cart").style.display = 'block';
+        document.getElementById("category").style.display = 'none';
+
+        for (i = 0; i < count; i++) {
+          document.getElementsByClassName("cartItem")[i].innerHTML=array[(3 * i) + 1];
+        }
+        for (i = 0; i < count; i++) {
+          document.getElementsByClassName("cartQuantity")[i].innerHTML=items[array[3 * i]].quantity;
+        }
+        for (i = 0; i < count; i++) {
+          document.getElementsByClassName("cartPrice")[i].innerHTML=array[(3 * i) + 2];
+        }
+        document.getElementsByClassName("cartItem")[count].innerHTML="Total";
+        document.getElementsByClassName("cartPrice")[count].innerHTML=sum;
+      }
+
+      function home() {
+        document.getElementById("sidebar1").style.display = 'none';
+        document.getElementById("sidebar2").style.display = 'none';
+        document.getElementById("sidebar3").style.display = 'none';
+        document.getElementById("addCategory").style.display = 'none';
+        document.getElementById("inputitem").style.display = 'none';
+        document.getElementById("sidebar4").style.display = 'none';
+        document.getElementById("sidebar5").style.display = 'none';
+        document.getElementById("cart").style.display = 'none';
+        document.getElementById("category").style.display = 'block';
+      }
+
+      function category1() {
+        document.getElementById("category").style.display = 'none';
+        document.getElementById("sidebar1").style.display = 'block';
+        document.getElementById("sidebar2").style.display = 'none';
+        document.getElementById("addCategory").style.display = 'none';
+        document.getElementById("sidebar3").style.display = 'none';
+        document.getElementById("inputitem").style.display = 'none';
+        document.getElementById("sidebar4").style.display = 'none';
+        document.getElementById("sidebar5").style.display = 'none';
+        document.getElementById("cart").style.display = 'none';
+        for (i = 0; i < 5; i++) {
+          document.getElementsByClassName("item11")[i].style.backgroundImage = "url('" + img[i] +"')";
+          document.getElementsByClassName("item11")[i].style.backgroundSize = "100% 80%";
+          document.getElementsByClassName("item11")[i].style.backgroundRepeat = "no-repeat";
+          document.getElementsByClassName("item11")[i].style.width = "100%";
+          document.getElementsByClassName("item11")[i].style.height = "80%";
+        }
+      }
+
+      function category2() {
+        document.getElementById("category").style.display = 'none';
+        document.getElementById("sidebar1").style.display = 'none';
+        document.getElementById("sidebar2").style.display = 'block';
+        document.getElementById("sidebar3").style.display = 'none';
+        document.getElementById("inputitem").style.display = 'none';
+        document.getElementById("addCategory").style.display = 'none';
+        document.getElementById("sidebar4").style.display = 'none';
+        document.getElementById("sidebar5").style.display = 'none';
+        document.getElementById("cart").style.display = 'none';
+        for (i = 0; i < 5; i++) {
+          document.getElementsByClassName("item22")[i].style.backgroundImage = "url('" + img[i + 5] +"')";
+          document.getElementsByClassName("item22")[i].style.backgroundSize = "100% 80%";
+          document.getElementsByClassName("item22")[i].style.backgroundRepeat = "no-repeat";
+          document.getElementsByClassName("item22")[i].style.width = "100%";
+          document.getElementsByClassName("item22")[i].style.height = "80%";
+        }
+      }
+
+      function category3() {
+        document.getElementById("category").style.display = 'none';
+        document.getElementById("sidebar1").style.display = 'none';
+        document.getElementById("addCategory").style.display = 'none';
+        document.getElementById("sidebar2").style.display = 'none';
+        document.getElementById("sidebar3").style.display = 'block';
+        document.getElementById("inputitem").style.display = 'none';
+        document.getElementById("sidebar4").style.display = 'none';
+        document.getElementById("sidebar5").style.display = 'none';
+        document.getElementById("cart").style.display = 'none';
+        for (i = 0; i < 5; i++) {
+          document.getElementsByClassName("item33")[i].style.backgroundImage = "url('" + img[i + 10] +"')";
+          document.getElementsByClassName("item33")[i].style.backgroundSize = "100% 80%";
+          document.getElementsByClassName("item33")[i].style.backgroundRepeat = "no-repeat";
+          document.getElementsByClassName("item33")[i].style.width = "100%";
+          document.getElementsByClassName("item33")[i].style.height = "80%";
+        }
+      }
+
+      function category4() {
+        document.getElementById("category").style.display = 'none';
+        document.getElementById("sidebar1").style.display = 'none';
+        document.getElementById("sidebar2").style.display = 'none';
+        document.getElementById("sidebar3").style.display = 'none';
+        document.getElementById("inputitem").style.display = 'none';
+        document.getElementById("sidebar4").style.display = 'block';
+        document.getElementById("sidebar5").style.display = 'none';
+        document.getElementById("addCategory").style.display = 'none';
+        document.getElementById("cart").style.display = 'none';
+        for (i = 0; i < 5; i++) {
+          document.getElementsByClassName("item44")[i].style.backgroundImage = "url('" + img[i + 15] +"')";
+          document.getElementsByClassName("item44")[i].style.backgroundSize = "100% 80%";
+          document.getElementsByClassName("item44")[i].style.backgroundRepeat = "no-repeat";
+          document.getElementsByClassName("item44")[i].style.width = "100%";
+          document.getElementsByClassName("item44")[i].style.height = "80%";
+        }
+      }
+
+      function category5() {
+        document.getElementById("category").style.display = 'none';
+        document.getElementById("sidebar1").style.display = 'none';
+        document.getElementById("sidebar2").style.display = 'none';
+        document.getElementById("sidebar3").style.display = 'none';
+        document.getElementById("sidebar4").style.display = 'none';
+        document.getElementById("inputitem").style.display = 'none';
+        document.getElementById("sidebar5").style.display = 'block';
+        document.getElementById("cart").style.display = 'none';
+        document.getElementById("addCategory").style.display = 'none';
+        for (i = 0; i < 5; i++) {
+          document.getElementsByClassName("item55")[i].style.backgroundImage = "url('" + img[i + 20] +"')";
+          document.getElementsByClassName("item55")[i].style.backgroundSize = "100% 80%";
+          document.getElementsByClassName("item55")[i].style.backgroundRepeat = "no-repeat";
+          document.getElementsByClassName("item55")[i].style.width = "100%";
+          document.getElementsByClassName("item55")[i].style.height = "80%";
+        }
+      }
+
+      function addCategory() {
+        document.getElementById("category").style.display = 'none';
+        document.getElementById("sidebar1").style.display = 'none';
+        document.getElementById("sidebar2").style.display = 'none';
+        document.getElementById("sidebar3").style.display = 'none';
+        document.getElementById("sidebar4").style.display = 'none';
+        document.getElementById("sidebar5").style.display = 'none';
+        document.getElementById("cart").style.display = 'none';
+        document.getElementById("addCategory").style.display = 'block';
+        document.getElementById("inputitem").style.display = 'none';
+        for (i = 0; i < 6; i++) {
+          document.getElementsByClassName("additem")[i].style.display = 'none';
+        }
+      }
+
+      function addItems() {
+        var x = document.getElementById("categoryName").value;
+        var y = document.getElementById("numberOfItems").value;
+
+        document.getElementById("cat").innerHTML = x;
+        document.getElementsByClassName("additem")[5].style.display = 'block';
+        
+        for (i = 0; i < y; i++) {
+          document.getElementsByClassName("additem")[i].style.display = 'block';
+        }
+      }
+
+      function done() {
+        document.getElementById("category").style.display = 'none';
+        document.getElementById("sidebar1").style.display = 'none';
+        document.getElementById("sidebar2").style.display = 'none';
+        document.getElementById("sidebar3").style.display = 'none';
+        document.getElementById("sidebar4").style.display = 'none';
+        document.getElementById("sidebar5").style.display = 'none';
+        document.getElementById("cart").style.display = 'none';
+        document.getElementById("addCategory").style.display = 'none';
+        document.getElementById("inputitem").style.display = 'block';
+        document.getElementsByClassName("buttoncat")[5].onclick = done;
+        var w = document.getElementById("categoryName").value;
+        var y = document.getElementById("numberOfItems").value;
+        var input = [];
+        for (i = 0; i < y; i++) {
+          var x = document.getElementsByClassName("inp")[i].value;
+          var z = document.getElementsByClassName("inp2")[i].value;
+          z = parseInt(z, 10);
+          items.push({"item" : x, "quantity" : 0, "price" : z});
+        }
+
+        for (i = 0; i < 6; i++) {
+          document.getElementsByClassName("buttoncategory")[(8 * i) + 6].style.display = 'block';
+          document.getElementsByClassName("buttoncategory")[(8 * i) + 6].innerHTML = w;
+        }
+
+        for (i = 0; i < y; i++) {
+          document.getElementsByClassName("inputItem")[i].innerHTML = items[i + 25].item;
+        }
+
+        for (i = 5; i > y; i--) {
+          document.getElementById(i).style.display = 'none';
+        }
+      }
+
+      function item(num) {
+        if (items[num].quantity >= 1) {
+          sum = sum + items[num].price;
+          items[num].quantity += 1;
+          for (a = 0; a < 6; a++) {
+            document.getElementsByClassName("alert alert-success")[a].style.display = 'block';
+            document.getElementsByClassName("alert alert-success")[a].innerHTML = items[num].item + " added another. Total:" + items[num].quantity;
+          }
+        }
+        else {
+          count += 1;
+          if (count > 10) {
+            for (k = 0; k < 6; k++) {
+              document.getElementsByClassName("alert alert-success")[k].style.display = 'none';
+              document.getElementsByClassName("alert alert-danger")[k].style.display = 'block';
+            }
+            count = count - 1;
+          }
+          else {
+            array.push(num);
+            array.push(items[num].item);
+            items[num].quantity += 1;
+            array.push(items[num].price);
+            sum = sum + items[num].price;
+            for (a = 0; a < 6; a++) {
+              document.getElementsByClassName("alert alert-success")[a].style.display = 'block';
+              document.getElementsByClassName("alert alert-success")[a].innerHTML = items[num].item + " added to cart";
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
